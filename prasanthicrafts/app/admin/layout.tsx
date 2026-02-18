@@ -3,7 +3,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { LayoutDashboard, Package, Tag, MessageSquare, LogOut, Home } from "lucide-react";
+import { LayoutDashboard, Package, Tag, MessageSquare, LogOut, Home, Layers } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
@@ -32,6 +32,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         { name: "Dashboard", icon: LayoutDashboard, href: "/admin" },
         { name: "Products", icon: Package, href: "/admin/products" },
         { name: "Categories", icon: Tag, href: "/admin/categories" },
+        { name: "Material Types", icon: Layers, href: "/admin/variations" },
         { name: "Reviews", icon: MessageSquare, href: "/admin/reviews" },
     ];
 
@@ -63,8 +64,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                                 key={item.href}
                                 href={item.href}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${isActive
-                                        ? "bg-yellow-50 text-yellow-600 font-semibold"
-                                        : "text-gray-600 hover:bg-gray-50 hover:text-black"
+                                    ? "bg-yellow-50 text-yellow-600 font-semibold"
+                                    : "text-gray-600 hover:bg-gray-50 hover:text-black"
                                     }`}
                             >
                                 <item.icon className={`w-5 h-5 ${isActive ? "text-yellow-500" : ""}`} />
@@ -107,8 +108,8 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                                 key={item.href}
                                 href={item.href}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium whitespace-nowrap transition-colors ${isActive
-                                        ? "bg-yellow-50 text-yellow-600"
-                                        : "text-gray-500 hover:bg-gray-50"
+                                    ? "bg-yellow-50 text-yellow-600"
+                                    : "text-gray-500 hover:bg-gray-50"
                                     }`}
                             >
                                 <item.icon className="w-4 h-4" />
